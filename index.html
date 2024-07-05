@@ -1,0 +1,120 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Refinery</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-image: url('circuit-board.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Data Refinery</h1>
+        <p>Cleanse and Enhance Your Data</p>
+    </header>
+    <main>
+        <section id="short-description">
+            <p>Welcome to Data Refinery, your one-stop solution for cleaning and processing data for better analysis. Upload your CSV file and let us help you refine your data.</p>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
+      <!-- data-upload.html -->
+
+<section id="data-upload">
+    <h2>Upload Your Data</h2>
+    <p>Drag and drop your CSV file or click to upload.</p>
+    <input type="file" id="file-input" accept=".csv">
+    <button id="upload-btn">Upload</button>
+    <p>File size limit: 10MB</p>
+    <p>Supported data types: CSV</p>
+</section><!-- data-preview.html -->
+
+<section id="data-preview">
+    <h2>Data Preview</h2>
+    <table id="data-table">
+        <thead>
+            <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+                <th>Column 3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Display 10 rows of data -->
+            <tr>
+                <td>Value 1</td>
+                <td>Value 2</td>
+                <td>Value 3</td>
+            </tr>
+            <!--... -->
+        </tbody>
+    </table>
+    <button id="show-more-btn">Show More</button>
+</section><!-- data-cleaning.html -->
+
+<section id="data-cleaning">
+    <h2>Data Cleaning Options</h2>
+    <ul>
+        <li>
+            <input type="checkbox" id="handle-missing-values">
+            <label for="handle-missing-values">Identify and handle missing values</label>
+            <select id="missing-values-option">
+                <option value="remove-rows">Remove rows with missing values</option>
+                <option value="impute-mean">Impute with mean</option>
+                <option value="impute-median">Impute with median</option>
+                <option value="impute-mode">Impute with mode</option>
+            </select>
+        </li>
+        <li>
+            <input type="checkbox" id="detect-outliers">
+            <label for="detect-outliers">Detect and address outliers</label>
+            <select id="outlier-option">
+                <option value="capping">Capping</option>
+                <option value="winsorization">Winsorization</option>
+            </select>
+        </li>
+        <!--... -->
+    </ul>
+    <button id="clean-data-btn">Clean Data</button>
+</section><!-- data-processing.html -->
+
+<section id="data-processing">
+    <h2>Data Processing Options</h2>
+    <ul>
+        <li>
+            <input type="checkbox" id="feature-engineering">
+            <label for="feature-engineering">Feature engineering</label>
+            <select id="feature-engineering-option">
+                <option value="create-new-features">Create new features based on existing ones</option>
+            </select>
+        </li>
+        <li>
+            <input type="checkbox" id="normalization">
+            <label for="normalization">Normalization or scaling</label>
+            <select id="normalization-option">
+                <option value="min-max-scaling">Min-max scaling</option>
+                <option value="standardization">Standardization</option>
+            </select>
+        </li>
+        <!--... -->
+    </ul>
+    <button id="process-data-btn">Process Data</button>
+</section>
+                                 <!-- data-download.html -->
+
+<section id="data-download">
+    <h2>Download Cleaned and Processed Data</h2>
+    <button id="download-btn">Download as CSV</button>
+    <button id="download-visualization-btn
