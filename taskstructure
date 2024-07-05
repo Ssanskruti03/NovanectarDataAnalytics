@@ -1,0 +1,66 @@
+As a data analyst, it's essential to follow a structured approach to data cleaning and processing. Here's a step-by-step guide to help you achieve your goals:
+
+Step 1: Importing Libraries and Loading Data
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+#load the dataset
+df = pd.read_csv('dataset.csv')
+# Initial Data Exploration
+print(df.info())
+print(df.describe())
+print(df.head())
+
+Step 2 : Handling missing values
+# Identify missing values
+missing_values = df.isnull().sum()
+print(missing_values)
+# Handle missing values
+df.fillna(df.mean(), inplace=True)  # Example: mean imputation for numerical data
+df['categorical_column'].fillna(df['categorical_column'].mode()[0], inplace=True)  # Example: mode imputation for categorical data
+
+Step 3 :Handling Outliers
+# Calculate Z-scores
+from scipy import stats
+z_scores = np.abs(stats.zscore(df))
+# Remove outliers
+df = df[(z_scores < 3).all(axis=1)]
+
+Step 4:Handling Inconsistencies
+# Convert date column to datetime format
+df['date_column'] = pd.to_datetime(df['date_column'])
+
+Step 5:Standardizing Data Formats
+# One-hot encode categorical variables
+df = pd.get_dummies(df, columns=['category_column'])
+
+# Scale numerical variables
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+df[['numerical_column1', 'numerical_column2']] = scaler.fit_transform(df[['numerical_column1', 'numerical_column2']])
+
+Step 6:Removing Duplicates
+# Identify and remove duplicates
+df = df.drop_duplicates()
+
+Step 7:Feature Engineering
+# Create new features
+df['year'] = df['date'].dt.year  # Example: extracting year from date
+df['month'] = df['date'].dt.month
+
+# Encoding categorical variables
+df = pd.get_dummies(df, columns=['categorical_column'])
+
+Step 8:Data Transformation
+# Normalize or scale numerical features
+scaler = StandardScaler()
+df[['feature1', 'feature2']] = scaler.fit_transform(df[['feature1', 'feature2']])
+
+Step 9:Data Exploration and Visualization
+# Visualize data distribution using histograms
+df.hist(bins=50, figsize=(10, 10))
+
+# Visualize relationships using scatter plots
+plt.scatter(df['column1'], df['column2'])
+Summary:
+This guide outlines the steps for data cleaning and processing, including handling missing values, outliers, inconsistencies, standardizing formats, removing duplicates, feature engineering, data transformation, and exploratory data analysis.
